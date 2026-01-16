@@ -1,0 +1,2576 @@
+{
+	"info": {
+		"_postman_id": "6f6d92f1-a33f-4cde-ac63-100a6f35054f",
+		"name": "Darak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31457658"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/login",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send verification code",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"joudyalkhatib38@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/send/verification-code",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"send",
+								"verification-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check verification code",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"verification_code\":\"3037\",\r\n    \"email\":\"joudyalkhatib38@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/check/verification-code",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"check",
+								"verification-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"yoso2f\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/logout",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|QA6wLPUOmGmSSAtpAce0VZ9XZi4h75t3PPu4oLise558f9d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/check/auth",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"check",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|QA6wLPUOmGmSSAtpAce0VZ9XZi4h75t3PPu4oLise558f9d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"password_confirmation\":\"12345678\",\r\n\"password\":\"12345678\",\r\n\"old_password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/change-password",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"password_confirmation\":\"password\",\r\n\"password\":\"password\",\r\n\"verification_code\":\"3037\",\r\n\"email\":\"joudyalkhatib38@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}admin/reset-password",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Offer",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_description",
+											"value": "this is english j",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "هذا وصف بالعربي ثاني",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/db3.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/offers",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"offers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_description",
+											"value": "english description jj",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "تعديل وصف العربيj",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/db16.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/offers/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/offers",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"offers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/offers/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/offers/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Site_info",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "key",
+											"value": "this key",
+											"type": "text"
+										},
+										{
+											"key": "value",
+											"value": "this value",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/infos",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"infos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|KXFkfSRWmri82olO9Xx57GLV2KSyQDLGof9R5Ihye4ba1980",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "key",
+											"value": "phone2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "value",
+											"value": "value updated hhhhhh",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/infos/phone3/update",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"infos",
+										"phone3",
+										"update"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/infos",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"infos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/infos/3",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"infos",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/infos/this key",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"infos",
+										"this key"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Message",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/messages",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/messages/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"messages",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/messages/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"messages",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "P_sections",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name j3",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم عربي j3",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/db4.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/properties-sections",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties-sections"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name j0",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم العربي j0",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/db15.png"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/properties-sections/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties-sections",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/psections/2/properties",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"psections",
+										"2",
+										"properties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/properties-sections/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties-sections",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/properties-sections?search=اسم العربي j1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties-sections"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "اسم العربي j1"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Property",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name j2",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم عربي j2",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "english description",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "وصف عربي",
+											"type": "text"
+										},
+										{
+											"key": "total_price",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "number",
+											"value": "954",
+											"type": "text"
+										},
+										{
+											"key": "area",
+											"value": "this is area",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "this is address",
+											"type": "text"
+										},
+										{
+											"key": "files[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/DELL/Pictures/pngtree-pink-flower-cute-png-image_10448174.png",
+												"/C:/Users/DELL/Pictures/Rectangle 22 (2).png",
+												"/C:/Users/DELL/Pictures/db17.png"
+											]
+										},
+										{
+											"key": "is_best",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/psections/3/properties",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"psections",
+										"3",
+										"properties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name update ",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم عربي j1",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "english description update hhhhh",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "تعديل وصف عربيhhhhhhh",
+											"type": "text"
+										},
+										{
+											"key": "total_price",
+											"value": "700",
+											"type": "text"
+										},
+										{
+											"key": "number",
+											"value": "76",
+											"type": "text"
+										},
+										{
+											"key": "area",
+											"value": "area updated",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address updated",
+											"type": "text"
+										},
+										{
+											"key": "files[]",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/istockphoto-1170286115-612x612.bmp"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "is_best",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "trashed_files",
+											"value": "\"3\"",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/psections/2/properties/2",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"psections",
+										"2",
+										"properties",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}psections/search/properties?best=1&price_from=10&price_to=100&region=region&space=10",
+									"host": [
+										"{{url}}psections"
+									],
+									"path": [
+										"search",
+										"properties"
+									],
+									"query": [
+										{
+											"key": "best",
+											"value": "1"
+										},
+										{
+											"key": "price_from",
+											"value": "10"
+										},
+										{
+											"key": "price_to",
+											"value": "100"
+										},
+										{
+											"key": "region",
+											"value": "region"
+										},
+										{
+											"key": "space",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/properties/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/properties/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"properties",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "regions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/regions",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"regions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ser_sections",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم عربي yyyyyy",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "english description",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "وصف عربي",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/db1.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/services-sections",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services-sections"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ui"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name update hhh",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "تعديل اسم عربي",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "english description update",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "تعديل وصف عربي",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/Group 425.png"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/services-sections/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services-sections",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/services-sections?search=english name",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services-sections"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "english name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "en"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/ser_section/2/services",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"ser_section",
+										"2",
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/services-sections/4",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services-sections",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Services",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|TSncPM2CI9DLYVQYCr8zRhDLWvGfBCo5J3nyTuAg55eccd0b",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "locale",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "english name hhhhh",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "اسم عربي",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "english description",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "وصف عربي",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "455",
+											"type": "text"
+										},
+										{
+											"key": "files[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/DELL/Pictures/SIRIA GMP (1) (1).png",
+												"/C:/Users/DELL/Pictures/Figure_07_05_02a.jpg"
+											]
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/ser_sections/1/services",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"ser_sections",
+										"1",
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|TSncPM2CI9DLYVQYCr8zRhDLWvGfBCo5J3nyTuAg55eccd0b",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "en_name",
+											"value": "name updated تعديل",
+											"type": "text"
+										},
+										{
+											"key": "ar_name",
+											"value": "تعديل اسم عربي",
+											"type": "text"
+										},
+										{
+											"key": "en_description",
+											"value": "description updated",
+											"type": "text"
+										},
+										{
+											"key": "ar_description",
+											"value": "تعديل وصف عربي",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "766",
+											"type": "text"
+										},
+										{
+											"key": "files",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "trashed_files",
+											"value": "\"1\"",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}admin/ser_sections/1/services/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"ser_sections",
+										"1",
+										"services",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "section_all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|oMOQrljQmA3PBYm2qGPRjK6i8uN4pjGjcYnMmETm4a421511",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/ser_section/2/services?search=455",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"ser_section",
+										"2",
+										"services"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "455"
+										},
+										{
+											"key": "search",
+											"value": "اسم عربي",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "english description",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/services/2",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|P9BoKodYDkv6Ubdtatpsg6wg0aLOyOc4uvD9EWcfed3aa056",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}admin/services/1",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"services",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0987878787",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "this message",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}messages",
+							"host": [
+								"{{url}}messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "P_sections",
+			"item": [
+				{
+					"name": "section_with_properties",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}psections/2/properties",
+							"host": [
+								"{{url}}psections"
+							],
+							"path": [
+								"2",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}psections/2",
+							"host": [
+								"{{url}}psections"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}psections?search=",
+							"host": [
+								"{{url}}psections"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}psections/search/properties?best=0&price_from=0&price_to=100&region&space",
+							"host": [
+								"{{url}}psections"
+							],
+							"path": [
+								"search",
+								"properties"
+							],
+							"query": [
+								{
+									"key": "best",
+									"value": "0"
+								},
+								{
+									"key": "price_from",
+									"value": "0"
+								},
+								{
+									"key": "price_to",
+									"value": "100"
+								},
+								{
+									"key": "region",
+									"value": null
+								},
+								{
+									"key": "space",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}properties/3",
+							"host": [
+								"{{url}}properties"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "regions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "locale",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}regions",
+							"host": [
+								"{{url}}regions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ser_sections",
+			"item": [
+				{
+					"name": "section_with_services",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}services-sections/1/services",
+							"host": [
+								"{{url}}services-sections"
+							],
+							"path": [
+								"1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}services-sections/3",
+							"host": [
+								"{{url}}services-sections"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}services-sections?search=",
+							"host": [
+								"{{url}}services-sections"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "section_all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}services-sections/search/services?search=455",
+							"host": [
+								"{{url}}services-sections"
+							],
+							"path": [
+								"search",
+								"services"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "455"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}services/2",
+							"host": [
+								"{{url}}services"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Site_info",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en"
+							}
+						],
+						"url": {
+							"raw": "{{url}}infos",
+							"host": [
+								"{{url}}infos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}infos/3",
+							"host": [
+								"{{url}}infos"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Best_for_you",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}psections/best/properties",
+							"host": [
+								"{{url}}psections"
+							],
+							"path": [
+								"best",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offer",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "ar"
+							}
+						],
+						"url": {
+							"raw": "{{url}}offers",
+							"host": [
+								"{{url}}offers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api/v1/",
+			"type": "string"
+		}
+	]
+}
